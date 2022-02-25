@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/node": "17.0.15",
+    "@types/node-fetch": "^2.6.1",
     "@typescript-eslint/eslint-plugin": "5.10.2",
     "@typescript-eslint/parser": "5.10.2",
     "eslint": "8.8.0",
@@ -52,5 +53,10 @@
         }
       ]
     }
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mongodb": "^4.4.0",
+    "node-fetch": "2"
   }
 }
