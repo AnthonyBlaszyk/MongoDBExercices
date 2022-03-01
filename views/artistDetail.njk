@@ -1,0 +1,12 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <h1>Artist Details</h1>
+  <p> {{ artist.lastName }} </p>
+  <p> {{ artist.firstName }} </p>
+  <p>Songs : </p>
+  {% for song in songs %}
+    <p>{{ song.title }} - {{song.releaseYear}}</p>
+  {% endfor %}
+{% endblock %}
+

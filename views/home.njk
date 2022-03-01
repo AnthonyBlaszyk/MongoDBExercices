@@ -1,0 +1,9 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <h1>Hello</h1>
+  {% for artist in artists %}
+    <a a href="/artist/{{artist.lastName}}"> {{ artist.lastName }} </a>
+  {% endfor %}
+{% endblock %}
+
