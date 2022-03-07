@@ -1,6 +1,10 @@
 import * as mongo from "mongodb";
 
-export function createArtist(db: mongo.Db, firstName: string, lastName: string) {
+export function createArtist(
+  db: mongo.Db,
+  firstName: string,
+  lastName: string,
+): Promise<mongo.InsertOneResult<mongo.Document>> {
   return db.collection("artists").insertOne({
     firstName: firstName,
     lastName: lastName,
@@ -9,7 +13,12 @@ export function createArtist(db: mongo.Db, firstName: string, lastName: string) 
   });
 }
 
-export function createSong(db: mongo.Db, title: string, releaseYear: number, artistLastName: string) {
+export function createSong(
+  db: mongo.Db,
+  title: string,
+  releaseYear: number,
+  artistLastName: string,
+): Promise<mongo.UpdateResult> {
   return db
     .collection("artists")
     .findOne({ lastName: artistLastName })

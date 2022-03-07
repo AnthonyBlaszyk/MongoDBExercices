@@ -6,7 +6,6 @@ import { MongoClient } from "mongodb";
 
 const databaseUrl = process.env.MONGODB_DATABASE_URL || "";
 const client = new MongoClient(databaseUrl);
-
 const app = express();
 
 nunjucks.configure("views", {
@@ -15,7 +14,6 @@ nunjucks.configure("views", {
 });
 
 app.use(express.static("public"));
-
 app.set("view engine", "njk");
 
 // Home page
@@ -28,6 +26,7 @@ app.get("/", (req, response) => {
   });
 });
 
+// Artist page
 app.get("/artist/:slug", (req, response) => {
   const result = req.params.slug;
 
@@ -39,6 +38,7 @@ app.get("/artist/:slug", (req, response) => {
         .collection("songs")
         .find({ _id: { $in: artist.songs } })
         .toArray();
+      console.log(songs);
       response.render("artistDetail", { artist: artist, songs: songs });
     }
   });
